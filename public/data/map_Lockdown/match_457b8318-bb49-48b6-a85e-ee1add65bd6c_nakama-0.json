@@ -1,0 +1,65 @@
+{
+  "match_id": "457b8318-bb49-48b6-a85e-ee1add65bd6c.nakama-0",
+  "map_id": "Lockdown",
+  "player_count": 1,
+  "human_count": 5,
+  "bot_count": 0,
+  "duration_ms": 1770821118,
+  "events": [
+    {
+      "user_id": "97657d7a-cfb6-4d00-8f96-2a32f3d783e1",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -140.5439453125,
+      "z": 42.678436279296875,
+      "y": 61.45219421386719,
+      "ts": 1770821063,
+      "pixel_x": 368,
+      "pixel_y": 468
+    },
+    {
+      "user_id": "97657d7a-cfb6-4d00-8f96-2a32f3d783e1",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -135.28379821777344,
+      "z": 40.97742462158203,
+      "y": 61.152427673339844,
+      "ts": 1770821072,
+      "pixel_x": 373,
+      "pixel_y": 470
+    },
+    {
+      "user_id": "97657d7a-cfb6-4d00-8f96-2a32f3d783e1",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -118.08353424072266,
+      "z": 65.63421630859375,
+      "y": 61.09556579589844,
+      "ts": 1770821093,
+      "pixel_x": 391,
+      "pixel_y": 444
+    },
+    {
+      "user_id": "97657d7a-cfb6-4d00-8f96-2a32f3d783e1",
+      "player_type": "human",
+      "event": "Position",
+      "x": -122.51618957519531,
+      "z": 64.27135467529297,
+      "y": 61.20476150512695,
+      "ts": 1770821101,
+      "pixel_x": 386,
+      "pixel_y": 446
+    },
+    {
+      "user_id": "97657d7a-cfb6-4d00-8f96-2a32f3d783e1",
+      "player_type": "human",
+      "event": "BotKilled",
+      "x": -138.23040771484375,
+      "z": 54.03498458862305,
+      "y": 61.08784484863281,
+      "ts": 1770821118,
+      "pixel_x": 370,
+      "pixel_y": 456
+    }
+  ]
+}

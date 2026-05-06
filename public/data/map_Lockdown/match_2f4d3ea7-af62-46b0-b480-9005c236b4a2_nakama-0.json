@@ -1,0 +1,87 @@
+{
+  "match_id": "2f4d3ea7-af62-46b0-b480-9005c236b4a2.nakama-0",
+  "map_id": "Lockdown",
+  "player_count": 1,
+  "human_count": 7,
+  "bot_count": 0,
+  "duration_ms": 1770973441,
+  "events": [
+    {
+      "user_id": "b101d7ab-183b-4ec1-a8f7-992fca992a8d",
+      "player_type": "human",
+      "event": "BotKill",
+      "x": -198.95687866210938,
+      "z": -166.49851989746094,
+      "y": 59.592647552490234,
+      "ts": 1770973365,
+      "pixel_x": 308,
+      "pixel_y": 682
+    },
+    {
+      "user_id": "b101d7ab-183b-4ec1-a8f7-992fca992a8d",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -199.21177673339844,
+      "z": -166.57139587402344,
+      "y": 59.59770965576172,
+      "ts": 1770973369,
+      "pixel_x": 308,
+      "pixel_y": 682
+    },
+    {
+      "user_id": "b101d7ab-183b-4ec1-a8f7-992fca992a8d",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -198.7764434814453,
+      "z": -166.5563201904297,
+      "y": 59.587890625,
+      "ts": 1770973421,
+      "pixel_x": 308,
+      "pixel_y": 682
+    },
+    {
+      "user_id": "b101d7ab-183b-4ec1-a8f7-992fca992a8d",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -198.7764434814453,
+      "z": -166.5563201904297,
+      "y": 59.587890625,
+      "ts": 1770973422,
+      "pixel_x": 308,
+      "pixel_y": 682
+    },
+    {
+      "user_id": "b101d7ab-183b-4ec1-a8f7-992fca992a8d",
+      "player_type": "human",
+      "event": "Position",
+      "x": -202.7422332763672,
+      "z": -155.91566467285156,
+      "y": 59.58562088012695,
+      "ts": 1770973431,
+      "pixel_x": 304,
+      "pixel_y": 671
+    },
+    {
+      "user_id": "b101d7ab-183b-4ec1-a8f7-992fca992a8d",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -181.6202850341797,
+      "z": -141.16810607910156,
+      "y": 60.93292236328125,
+      "ts": 1770973439,
+      "pixel_x": 326,
+      "pixel_y": 656
+    },
+    {
+      "user_id": "b101d7ab-183b-4ec1-a8f7-992fca992a8d",
+      "player_type": "human",
+      "event": "Position",
+      "x": -173.5125732421875,
+      "z": -140.26211547851562,
+      "y": 59.641090393066406,
+      "ts": 1770973441,
+      "pixel_x": 334,
+      "pixel_y": 655
+    }
+  ]
+}

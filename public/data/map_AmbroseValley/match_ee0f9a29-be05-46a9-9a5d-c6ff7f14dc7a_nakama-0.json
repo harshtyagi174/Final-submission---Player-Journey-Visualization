@@ -1,0 +1,65 @@
+{
+  "match_id": "ee0f9a29-be05-46a9-9a5d-c6ff7f14dc7a.nakama-0",
+  "map_id": "AmbroseValley",
+  "player_count": 1,
+  "human_count": 5,
+  "bot_count": 0,
+  "duration_ms": 1770728415,
+  "events": [
+    {
+      "user_id": "373c0ec5-2fb0-4fbf-a1c4-69b387d3bcea",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -225.60052490234375,
+      "z": -328.5629577636719,
+      "y": 123.3918685913086,
+      "ts": 1770728339,
+      "pixel_x": 164,
+      "pixel_y": 859
+    },
+    {
+      "user_id": "373c0ec5-2fb0-4fbf-a1c4-69b387d3bcea",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -218.2975311279297,
+      "z": -342.5738830566406,
+      "y": 123.3918685913086,
+      "ts": 1770728350,
+      "pixel_x": 172,
+      "pixel_y": 875
+    },
+    {
+      "user_id": "373c0ec5-2fb0-4fbf-a1c4-69b387d3bcea",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -219.00845336914062,
+      "z": -330.46343994140625,
+      "y": 131.8019561767578,
+      "ts": 1770728371,
+      "pixel_x": 171,
+      "pixel_y": 861
+    },
+    {
+      "user_id": "373c0ec5-2fb0-4fbf-a1c4-69b387d3bcea",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -212.63226318359375,
+      "z": -311.4161682128906,
+      "y": 123.39329528808594,
+      "ts": 1770728398,
+      "pixel_x": 179,
+      "pixel_y": 840
+    },
+    {
+      "user_id": "373c0ec5-2fb0-4fbf-a1c4-69b387d3bcea",
+      "player_type": "human",
+      "event": "BotKilled",
+      "x": -203.1237030029297,
+      "z": -306.9351806640625,
+      "y": 123.39329528808594,
+      "ts": 1770728415,
+      "pixel_x": 189,
+      "pixel_y": 835
+    }
+  ]
+}

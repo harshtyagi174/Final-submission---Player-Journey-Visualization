@@ -1,0 +1,75 @@
+{
+  "match_id": "f0509ef9-0bb8-4aa0-ae01-ba9672873c5a",
+  "map_id": "GrandRift",
+  "player_count": 1,
+  "duration_ms": 0,
+  "event_count": 6,
+  "events": [
+    {
+      "match_id": "f0509ef9-0bb8-4aa0-ae01-ba9672873c5a",
+      "player_id": "db454a35-d216-4379-b140-2931160c7d8a",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -108.86853790283203,
+      "y": 21.663999557495117,
+      "pixel_x": 0.5966073439701945,
+      "pixel_y": 0.0
+    },
+    {
+      "match_id": "f0509ef9-0bb8-4aa0-ae01-ba9672873c5a",
+      "player_id": "db454a35-d216-4379-b140-2931160c7d8a",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -116.98114013671875,
+      "y": 22.38580894470215,
+      "pixel_x": 0.18436532597760327,
+      "pixel_y": 0.06280948445853798
+    },
+    {
+      "match_id": "f0509ef9-0bb8-4aa0-ae01-ba9672873c5a",
+      "player_id": "db454a35-d216-4379-b140-2931160c7d8a",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -120.60930633544922,
+      "y": 33.005191802978516,
+      "pixel_x": 0.0,
+      "pixel_y": 0.9868733362422556
+    },
+    {
+      "match_id": "f0509ef9-0bb8-4aa0-ae01-ba9672873c5a",
+      "player_id": "db454a35-d216-4379-b140-2931160c7d8a",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -107.14922332763672,
+      "y": 33.15571594238281,
+      "pixel_x": 0.6839743428207002,
+      "pixel_y": 0.9999714529502297
+    },
+    {
+      "match_id": "f0509ef9-0bb8-4aa0-ae01-ba9672873c5a",
+      "player_id": "db454a35-d216-4379-b140-2931160c7d8a",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -101.25372314453125,
+      "y": 33.156044006347656,
+      "pixel_x": 0.9835542830780086,
+      "pixel_y": 1.0
+    },
+    {
+      "match_id": "f0509ef9-0bb8-4aa0-ae01-ba9672873c5a",
+      "player_id": "db454a35-d216-4379-b140-2931160c7d8a",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -100.93008422851562,
+      "y": 33.156044006347656,
+      "pixel_x": 1.0,
+      "pixel_y": 1.0
+    }
+  ]
+}

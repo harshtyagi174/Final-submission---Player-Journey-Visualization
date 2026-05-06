@@ -1,0 +1,54 @@
+{
+  "match_id": "3a67d2b1-3477-427b-8030-f8285e145bc0.nakama-0",
+  "map_id": "Lockdown",
+  "player_count": 1,
+  "human_count": 4,
+  "bot_count": 0,
+  "duration_ms": 1770838541,
+  "events": [
+    {
+      "user_id": "b3340cc5-c9fa-4108-b56d-0728bc978a22",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 230.77743530273438,
+      "z": 74.9563217163086,
+      "y": 42.25596618652344,
+      "ts": 1770838522,
+      "pixel_x": 748,
+      "pixel_y": 435
+    },
+    {
+      "user_id": "b3340cc5-c9fa-4108-b56d-0728bc978a22",
+      "player_type": "human",
+      "event": "BotKill",
+      "x": 223.14715576171875,
+      "z": 84.99532318115234,
+      "y": 42.11561584472656,
+      "ts": 1770838533,
+      "pixel_x": 740,
+      "pixel_y": 424
+    },
+    {
+      "user_id": "b3340cc5-c9fa-4108-b56d-0728bc978a22",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 223.86013793945312,
+      "z": 84.2101821899414,
+      "y": 42.25596618652344,
+      "ts": 1770838540,
+      "pixel_x": 741,
+      "pixel_y": 425
+    },
+    {
+      "user_id": "b3340cc5-c9fa-4108-b56d-0728bc978a22",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 223.86013793945312,
+      "z": 84.2101821899414,
+      "y": 42.25596618652344,
+      "ts": 1770838541,
+      "pixel_x": 741,
+      "pixel_y": 425
+    }
+  ]
+}

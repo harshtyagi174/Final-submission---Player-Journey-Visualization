@@ -1,0 +1,197 @@
+{
+  "match_id": "494b1fc5-ceed-4449-9c77-f24e158f4849.nakama-0",
+  "map_id": "AmbroseValley",
+  "player_count": 1,
+  "human_count": 17,
+  "bot_count": 0,
+  "duration_ms": 1770892426,
+  "events": [
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Position",
+      "x": 180.9041290283203,
+      "z": 73.3515625,
+      "y": 113.31831359863281,
+      "ts": 1770892240,
+      "pixel_x": 626,
+      "pixel_y": 402
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 177.6374969482422,
+      "z": 83.6813735961914,
+      "y": 113.31831359863281,
+      "ts": 1770892251,
+      "pixel_x": 623,
+      "pixel_y": 390
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 174.54806518554688,
+      "z": 72.63336181640625,
+      "y": 113.31831359863281,
+      "ts": 1770892256,
+      "pixel_x": 619,
+      "pixel_y": 403
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 168.91989135742188,
+      "z": 76.29048156738281,
+      "y": 113.31831359863281,
+      "ts": 1770892264,
+      "pixel_x": 613,
+      "pixel_y": 399
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Position",
+      "x": 168.91989135742188,
+      "z": 76.29048156738281,
+      "y": 113.31831359863281,
+      "ts": 1770892265,
+      "pixel_x": 613,
+      "pixel_y": 399
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "BotKill",
+      "x": 159.83871459960938,
+      "z": 77.41624450683594,
+      "y": 113.20755004882812,
+      "ts": 1770892291,
+      "pixel_x": 602,
+      "pixel_y": 397
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 164.20046997070312,
+      "z": 55.76919174194336,
+      "y": 113.2559814453125,
+      "ts": 1770892299,
+      "pixel_x": 607,
+      "pixel_y": 422
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 164.20046997070312,
+      "z": 55.76919174194336,
+      "y": 113.2559814453125,
+      "ts": 1770892300,
+      "pixel_x": 607,
+      "pixel_y": 422
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Position",
+      "x": 149.5288543701172,
+      "z": 54.7913703918457,
+      "y": 113.21273040771484,
+      "ts": 1770892310,
+      "pixel_x": 591,
+      "pixel_y": 423
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "BotKill",
+      "x": 97.36276245117188,
+      "z": -7.510222911834717,
+      "y": 113.31932067871094,
+      "ts": 1770892354,
+      "pixel_x": 531,
+      "pixel_y": 494
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 96.55059814453125,
+      "z": -6.940604209899902,
+      "y": 113.31932067871094,
+      "ts": 1770892361,
+      "pixel_x": 530,
+      "pixel_y": 493
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 96.55059814453125,
+      "z": -6.940604209899902,
+      "y": 113.31932067871094,
+      "ts": 1770892362,
+      "pixel_x": 530,
+      "pixel_y": 493
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 96.55059814453125,
+      "z": -6.940604209899902,
+      "y": 113.31932067871094,
+      "ts": 1770892363,
+      "pixel_x": 530,
+      "pixel_y": 493
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 96.55059814453125,
+      "z": -6.940604209899902,
+      "y": 113.31932067871094,
+      "ts": 1770892364,
+      "pixel_x": 530,
+      "pixel_y": 493
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 95.49913024902344,
+      "z": -6.667779445648193,
+      "y": 113.31932067871094,
+      "ts": 1770892405,
+      "pixel_x": 529,
+      "pixel_y": 493
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 95.49913024902344,
+      "z": -6.667779445648193,
+      "y": 113.31932067871094,
+      "ts": 1770892407,
+      "pixel_x": 529,
+      "pixel_y": 493
+    },
+    {
+      "user_id": "cd43cf17-a2bf-449a-a0f0-94059d0aee37",
+      "player_type": "human",
+      "event": "Position",
+      "x": 141.46958923339844,
+      "z": 31.642793655395508,
+      "y": 113.6162338256836,
+      "ts": 1770892426,
+      "pixel_x": 581,
+      "pixel_y": 449
+    }
+  ]
+}

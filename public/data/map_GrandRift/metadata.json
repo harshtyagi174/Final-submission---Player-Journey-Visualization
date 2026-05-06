@@ -1,0 +1,23 @@
+{
+  "map_id": "GrandRift",
+  "total_rows": 1686,
+  "unique_matches": 59,
+  "unique_players": 59,
+  "human_players": 29,
+  "bot_players": 30,
+  "event_types": [
+    "BotKill",
+    "BotKilled",
+    "BotPosition",
+    "Kill",
+    "Killed",
+    "KilledByStorm",
+    "Loot",
+    "Position"
+  ],
+  "config": {
+    "scale": 581,
+    "origin_x": -290,
+    "origin_z": -290
+  }
+}

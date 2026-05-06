@@ -1,0 +1,87 @@
+{
+  "match_id": "4540b5c0-e42f-4c9c-a3a2-b8c9b199e121.nakama-0",
+  "map_id": "AmbroseValley",
+  "player_count": 1,
+  "human_count": 7,
+  "bot_count": 0,
+  "duration_ms": 1770899328,
+  "events": [
+    {
+      "user_id": "d69f4477-9adf-46e3-9aaa-a6646f673347",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -52.86536407470703,
+      "z": -358.600341796875,
+      "y": 126.8878402709961,
+      "ts": 1770899176,
+      "pixel_x": 360,
+      "pixel_y": 893
+    },
+    {
+      "user_id": "d69f4477-9adf-46e3-9aaa-a6646f673347",
+      "player_type": "human",
+      "event": "Position",
+      "x": 6.796893119812012,
+      "z": -316.34661865234375,
+      "y": 128.6943817138672,
+      "ts": 1770899203,
+      "pixel_x": 428,
+      "pixel_y": 845
+    },
+    {
+      "user_id": "d69f4477-9adf-46e3-9aaa-a6646f673347",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -1.0215729475021362,
+      "z": -135.87677001953125,
+      "y": 111.92733001708984,
+      "ts": 1770899253,
+      "pixel_x": 419,
+      "pixel_y": 640
+    },
+    {
+      "user_id": "d69f4477-9adf-46e3-9aaa-a6646f673347",
+      "player_type": "human",
+      "event": "BotKill",
+      "x": -5.056817531585693,
+      "z": -112.14727020263672,
+      "y": 109.43456268310547,
+      "ts": 1770899283,
+      "pixel_x": 415,
+      "pixel_y": 613
+    },
+    {
+      "user_id": "d69f4477-9adf-46e3-9aaa-a6646f673347",
+      "player_type": "human",
+      "event": "BotKill",
+      "x": -8.628275871276855,
+      "z": -113.2837142944336,
+      "y": 109.32245635986328,
+      "ts": 1770899296,
+      "pixel_x": 411,
+      "pixel_y": 614
+    },
+    {
+      "user_id": "d69f4477-9adf-46e3-9aaa-a6646f673347",
+      "player_type": "human",
+      "event": "Position",
+      "x": -22.0799617767334,
+      "z": -99.11878967285156,
+      "y": 105.83842468261719,
+      "ts": 1770899319,
+      "pixel_x": 395,
+      "pixel_y": 598
+    },
+    {
+      "user_id": "d69f4477-9adf-46e3-9aaa-a6646f673347",
+      "player_type": "human",
+      "event": "BotKilled",
+      "x": -32.070438385009766,
+      "z": -99.09249114990234,
+      "y": 105.4241714477539,
+      "ts": 1770899328,
+      "pixel_x": 384,
+      "pixel_y": 598
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+  "map_id": "AmbroseValley",
+  "player_count": 1,
+  "duration_ms": 0,
+  "event_count": 14,
+  "events": [
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 233.1541748046875,
+      "y": 110.67094421386719,
+      "pixel_x": 1.0,
+      "pixel_y": 1.0
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 228.0902862548828,
+      "y": 108.31076049804688,
+      "pixel_x": 0.93210511639535,
+      "pixel_y": 0.76984661351173
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 211.07913208007812,
+      "y": 104.63285064697266,
+      "pixel_x": 0.7040253864961468,
+      "pixel_y": 0.41119512305811756
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 196.49681091308594,
+      "y": 103.76229858398438,
+      "pixel_x": 0.5085106178394105,
+      "pixel_y": 0.3263032122852035
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 192.75241088867188,
+      "y": 102.55980682373047,
+      "pixel_x": 0.45830698453933577,
+      "pixel_y": 0.20904219188599835
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 192.75241088867188,
+      "y": 102.55980682373047,
+      "pixel_x": 0.45830698453933577,
+      "pixel_y": 0.20904219188599835
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 176.4993896484375,
+      "y": 100.45977783203125,
+      "pixel_x": 0.24039204141283682,
+      "pixel_y": 0.004257801194981702
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 170.25146484375,
+      "y": 100.4161148071289,
+      "pixel_x": 0.15662200516248825,
+      "pixel_y": 0.0
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 158.56993103027344,
+      "y": 102.87020111083984,
+      "pixel_x": 0.0,
+      "pixel_y": 0.23931030018874788
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 158.838623046875,
+      "y": 102.83831024169922,
+      "pixel_x": 0.0036025305480637806,
+      "pixel_y": 0.23620046111919984
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 158.838623046875,
+      "y": 102.83831024169922,
+      "pixel_x": 0.0036025305480637806,
+      "pixel_y": 0.23620046111919984
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 161.16705322265625,
+      "y": 102.8870620727539,
+      "pixel_x": 0.03482132500046543,
+      "pixel_y": 0.24095449740015965
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 165.1754150390625,
+      "y": 105.66090393066406,
+      "pixel_x": 0.0885640676168531,
+      "pixel_y": 0.511445770135278
+    },
+    {
+      "match_id": "5ae9930a-8fd7-4d81-8e95-a10a06cda40e",
+      "player_id": "060a5173-6ed0-49ab-96d9-5b1b1406a72c",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 165.1754150390625,
+      "y": 105.66090393066406,
+      "pixel_x": 0.0885640676168531,
+      "pixel_y": 0.511445770135278
+    }
+  ]
+}

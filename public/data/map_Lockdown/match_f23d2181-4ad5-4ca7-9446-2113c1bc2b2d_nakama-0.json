@@ -1,0 +1,21 @@
+{
+  "match_id": "f23d2181-4ad5-4ca7-9446-2113c1bc2b2d.nakama-0",
+  "map_id": "Lockdown",
+  "player_count": 1,
+  "human_count": 1,
+  "bot_count": 0,
+  "duration_ms": 1770915013,
+  "events": [
+    {
+      "user_id": "b69ca9d6-d27d-4a61-b6d8-6e747cee8f79",
+      "player_type": "human",
+      "event": "BotKilled",
+      "x": -92.46148681640625,
+      "z": 83.1381607055664,
+      "y": 47.44009017944336,
+      "ts": 1770915013,
+      "pixel_x": 417,
+      "pixel_y": 426
+    }
+  ]
+}

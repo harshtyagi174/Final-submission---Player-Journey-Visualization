@@ -1,0 +1,21 @@
+{
+  "map_id": "Lockdown",
+  "total_rows": 4493,
+  "unique_matches": 171,
+  "unique_players": 120,
+  "human_players": 79,
+  "bot_players": 41,
+  "event_types": [
+    "BotKill",
+    "BotKilled",
+    "BotPosition",
+    "KilledByStorm",
+    "Loot",
+    "Position"
+  ],
+  "config": {
+    "scale": 1000,
+    "origin_x": -500,
+    "origin_z": -500
+  }
+}

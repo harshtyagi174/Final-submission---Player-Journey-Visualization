@@ -1,0 +1,21 @@
+{
+  "match_id": "f0509ef9-0bb8-4aa0-ae01-ba9672873c5a.nakama-0",
+  "map_id": "GrandRift",
+  "player_count": 1,
+  "human_count": 1,
+  "bot_count": 0,
+  "duration_ms": 1770838831,
+  "events": [
+    {
+      "user_id": "db454a35-d216-4379-b140-2931160c7d8a",
+      "player_type": "human",
+      "event": "BotKilled",
+      "x": -101.25372314453125,
+      "z": 89.47374725341797,
+      "y": 33.156044006347656,
+      "ts": 1770838831,
+      "pixel_x": 332,
+      "pixel_y": 355
+    }
+  ]
+}

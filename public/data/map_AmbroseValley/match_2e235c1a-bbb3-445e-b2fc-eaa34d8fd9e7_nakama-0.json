@@ -1,0 +1,98 @@
+{
+  "match_id": "2e235c1a-bbb3-445e-b2fc-eaa34d8fd9e7.nakama-0",
+  "map_id": "AmbroseValley",
+  "player_count": 1,
+  "human_count": 8,
+  "bot_count": 0,
+  "duration_ms": 1770693476,
+  "events": [
+    {
+      "user_id": "f3cf6ebd-6ac0-4a78-ad6d-7486010249b8",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -146.5199432373047,
+      "z": -181.87535095214844,
+      "y": 101.69891357421875,
+      "ts": 1770692819,
+      "pixel_x": 254,
+      "pixel_y": 692
+    },
+    {
+      "user_id": "f3cf6ebd-6ac0-4a78-ad6d-7486010249b8",
+      "player_type": "human",
+      "event": "Position",
+      "x": -159.02484130859375,
+      "z": -170.58876037597656,
+      "y": 109.26114654541016,
+      "ts": 1770692831,
+      "pixel_x": 240,
+      "pixel_y": 679
+    },
+    {
+      "user_id": "f3cf6ebd-6ac0-4a78-ad6d-7486010249b8",
+      "player_type": "human",
+      "event": "Position",
+      "x": -160.35411071777344,
+      "z": -173.89527893066406,
+      "y": 109.73123931884766,
+      "ts": 1770692901,
+      "pixel_x": 238,
+      "pixel_y": 683
+    },
+    {
+      "user_id": "f3cf6ebd-6ac0-4a78-ad6d-7486010249b8",
+      "player_type": "human",
+      "event": "BotKill",
+      "x": -165.942138671875,
+      "z": -179.41299438476562,
+      "y": 110.60614776611328,
+      "ts": 1770692925,
+      "pixel_x": 232,
+      "pixel_y": 689
+    },
+    {
+      "user_id": "f3cf6ebd-6ac0-4a78-ad6d-7486010249b8",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -177.0488739013672,
+      "z": -178.405029296875,
+      "y": 110.15585327148438,
+      "ts": 1770692962,
+      "pixel_x": 219,
+      "pixel_y": 688
+    },
+    {
+      "user_id": "f3cf6ebd-6ac0-4a78-ad6d-7486010249b8",
+      "player_type": "human",
+      "event": "Loot",
+      "x": -177.0488739013672,
+      "z": -178.405029296875,
+      "y": 110.15585327148438,
+      "ts": 1770692962,
+      "pixel_x": 219,
+      "pixel_y": 688
+    },
+    {
+      "user_id": "f3cf6ebd-6ac0-4a78-ad6d-7486010249b8",
+      "player_type": "human",
+      "event": "Position",
+      "x": -166.1708526611328,
+      "z": -176.1799774169922,
+      "y": 110.43315124511719,
+      "ts": 1770692966,
+      "pixel_x": 231,
+      "pixel_y": 686
+    },
+    {
+      "user_id": "f3cf6ebd-6ac0-4a78-ad6d-7486010249b8",
+      "player_type": "human",
+      "event": "KilledByStorm",
+      "x": -188.0615692138672,
+      "z": -227.677490234375,
+      "y": 103.59224700927734,
+      "ts": 1770693476,
+      "pixel_x": 207,
+      "pixel_y": 744
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "map_id": "AmbroseValley",
+  "total_rows": 17172,
+  "unique_matches": 566,
+  "unique_players": 268,
+  "human_players": 217,
+  "bot_players": 51,
+  "event_types": [
+    "BotKill",
+    "BotKilled",
+    "BotPosition",
+    "Kill",
+    "Killed",
+    "KilledByStorm",
+    "Loot",
+    "Position"
+  ],
+  "config": {
+    "scale": 900,
+    "origin_x": -370,
+    "origin_z": -473
+  }
+}

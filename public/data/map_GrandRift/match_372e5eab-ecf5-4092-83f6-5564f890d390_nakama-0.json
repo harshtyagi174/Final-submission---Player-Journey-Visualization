@@ -1,0 +1,54 @@
+{
+  "match_id": "372e5eab-ecf5-4092-83f6-5564f890d390.nakama-0",
+  "map_id": "GrandRift",
+  "player_count": 1,
+  "human_count": 4,
+  "bot_count": 0,
+  "duration_ms": 1770705124,
+  "events": [
+    {
+      "user_id": "7289ea35-a6a3-4f8a-a380-fee7b07f1178",
+      "player_type": "human",
+      "event": "Position",
+      "x": -191.5693817138672,
+      "z": 31.721939086914062,
+      "y": 39.853065490722656,
+      "ts": 1770704988,
+      "pixel_x": 173,
+      "pixel_y": 456
+    },
+    {
+      "user_id": "7289ea35-a6a3-4f8a-a380-fee7b07f1178",
+      "player_type": "human",
+      "event": "BotKill",
+      "x": -66.72232055664062,
+      "z": -106.9614028930664,
+      "y": 20.10154151916504,
+      "ts": 1770705077,
+      "pixel_x": 393,
+      "pixel_y": 701
+    },
+    {
+      "user_id": "7289ea35-a6a3-4f8a-a380-fee7b07f1178",
+      "player_type": "human",
+      "event": "Position",
+      "x": -11.982906341552734,
+      "z": -147.3419189453125,
+      "y": 12.277385711669922,
+      "ts": 1770705109,
+      "pixel_x": 489,
+      "pixel_y": 772
+    },
+    {
+      "user_id": "7289ea35-a6a3-4f8a-a380-fee7b07f1178",
+      "player_type": "human",
+      "event": "Position",
+      "x": 55.919677734375,
+      "z": -158.0529327392578,
+      "y": 18.00693130493164,
+      "ts": 1770705124,
+      "pixel_x": 609,
+      "pixel_y": 791
+    }
+  ]
+}

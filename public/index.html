@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LILA BLACK – Player Journey Visualization</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      width: 100%; height: 100%;
+      background: #0a0e27; color: #e0e0e0;
+    }
+
+    #app { display: flex; height: 100vh; width: 100vw; }
+
+    /* ── Sidebar ──────────────────────────────────────────── */
+    #sidebar {
+      width: 280px; min-width: 280px;
+      background: #1a1f3a;
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 1px solid #2a3f5f;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+
+    h1 { font-size: 18px; color: #64b5f6; }
+    h2 {
+      font-size: 11px; color: #90caf9;
+      text-transform: uppercase; letter-spacing: 1px;
+      border-top: 1px solid #2a3f5f; padding-top: 10px; margin-top: 2px;
+    }
+
+    label { display: block; font-size: 11px; color: #b0bec5; margin-bottom: 4px; text-transform: uppercase; }
+
+    select {
+      width: 100%; padding: 7px 8px;
+      background: #0f1419; border: 1px solid #2a3f5f;
+      color: #e0e0e0; border-radius: 4px; font-size: 12px;
+    }
+    select:focus { outline: none; border-color: #64b5f6; }
+
+    .checkbox-row {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; color: #cdd8e3; cursor: pointer;
+    }
+    .checkbox-row input[type=checkbox] { accent-color: #64b5f6; }
+
+    button {
+      width: 100%; padding: 8px;
+      background: #1976d2; color: #fff;
+      border: none; border-radius: 4px;
+      cursor: pointer; font-size: 12px;
+      text-transform: uppercase; letter-spacing: .5px;
+      transition: background .15s;
+    }
+    button:hover { background: #1565c0; }
+    button:active { background: #0d47a1; }
+    button:disabled { background: #333; color: #666; cursor: not-allowed; }
+
+    /* Stats */
+    #stats { display: flex; flex-direction: column; gap: 6px; }
+    .stat {
+      padding: 8px; background: #0f1419;
+      border-radius: 4px; border-left: 3px solid #64b5f6;
+      font-size: 12px;
+    }
+    .stat-label { color: #90caf9; font-size: 11px; }
+    .stat-value { color: #64b5f6; font-size: 15px; font-weight: 600; margin-top: 2px; }
+
+    /* Legend dots */
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #cdd8e3; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .diamond { width: 9px; height: 9px; transform: rotate(45deg); flex-shrink: 0; }
+
+    /* Error banner */
+    .error-banner {
+      background: #7f1d1d; color: #fca5a5;
+      padding: 8px 10px; border-radius: 4px;
+      font-size: 12px; display: none;
+    }
+    .error-banner.visible { display: block; }
+
+    /* ── Map viewport ─────────────────────────────────────── */
+    #viewport {
+      flex: 1; position: relative; overflow: hidden;
+      background: #0f1419; cursor: grab;
+    }
+    #viewport:active { cursor: grabbing; }
+
+    /* Minimap image behind the canvas */
+    #minimapImg {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: contain; opacity: 0.45;
+      pointer-events: none; display: none;
+    }
+
+    #overlayCanvas {
+      position: absolute; top: 0; left: 0;
+      pointer-events: none;
+    }
+
+    /* Tooltip */
+    #tooltip {
+      position: absolute;
+      background: rgba(0,0,0,.85); color: #90caf9;
+      padding: 6px 10px; border-radius: 3px;
+      font-size: 11px; pointer-events: none;
+      border: 1px solid #2a3f5f;
+      display: none; z-index: 10;
+      white-space: nowrap;
+    }
+
+    /* Loading overlay */
+    #loadingMsg {
+      position: absolute; inset: 0;
+      display: none; align-items: center; justify-content: center;
+      background: rgba(10,14,39,.7); color: #64b5f6; font-size: 14px;
+      z-index: 5;
+    }
+    #loadingMsg.visible { display: flex; }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ══════════════ SIDEBAR ══════════════ -->
+  <div id="sidebar">
+    <h1>🎮 LILA BLACK</h1>
+
+    <div class="error-banner" id="errBanner"></div>
+
+    <!-- Map selector -->
+    <div>
+      <label>Map</label>
+      <select id="mapSelect">
+        <option value="">— select map —</option>
+        <option value="AmbroseValley">Ambrose Valley</option>
+        <option value="GrandRift">Grand Rift</option>
+        <option value="Lockdown">Lockdown</option>
+      </select>
+    </div>
+
+    <!-- Match selector — populated dynamically -->
+    <div>
+      <label>Match</label>
+      <select id="matchSelect" disabled>
+        <option value="">— select a map first —</option>
+      </select>
+    </div>
+
+    <button id="loadBtn" disabled>Load Match</button>
+
+    <!-- ── Filters ── -->
+    <h2>Filters — Player Type</h2>
+    <label class="checkbox-row"><input type="checkbox" id="chkHumans" checked> Humans</label>
+    <label class="checkbox-row"><input type="checkbox" id="chkBots"   checked> Bots</label>
+
+    <h2>Filters — Events</h2>
+    <label class="checkbox-row"><input type="checkbox" id="chkPositions" checked> Positions (paths)</label>
+    <label class="checkbox-row"><input type="checkbox" id="chkKills"     checked> Kills</label>
+    <label class="checkbox-row"><input type="checkbox" id="chkDeaths"    checked> Deaths</label>
+    <label class="checkbox-row"><input type="checkbox" id="chkLoot"      checked> Loot</label>
+    <label class="checkbox-row"><input type="checkbox" id="chkStorm"     checked> Storm deaths</label>
+
+    <!-- ── Stats ── -->
+    <h2>Match Stats</h2>
+    <div id="stats">
+      <div class="stat"><div class="stat-label">Status</div><div class="stat-value" id="statStatus">No data loaded</div></div>
+    </div>
+
+    <!-- ── Legend ── -->
+    <h2>Legend</h2>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div class="legend-item"><div class="dot" style="background:#4fc3f7"></div> Human position</div>
+      <div class="legend-item"><div class="dot" style="background:#ffc107"></div> Bot position</div>
+      <div class="legend-item"><div class="dot" style="background:#4caf50;border-radius:2px;transform:rotate(45deg)"></div> Kill</div>
+      <div class="legend-item"><div class="dot" style="background:#ef5350;border-radius:2px"></div> Death</div>
+      <div class="legend-item"><div class="dot" style="background:#ba68c8;border-radius:2px;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%)"></div> Storm death</div>
+      <div class="legend-item"><div class="dot" style="background:#29b6f6;border-radius:1px;transform:rotate(45deg)"></div> Loot</div>
+    </div>
+  </div>
+
+  <!-- ══════════════ VIEWPORT ══════════════ -->
+  <div id="viewport">
+    <img id="minimapImg" alt="minimap" />
+    <canvas id="overlayCanvas"></canvas>
+    <div id="tooltip"></div>
+    <div id="loadingMsg" class="visible">Select a map and match, then click Load Match</div>
+  </div>
+
+</div><!-- #app -->
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────
+// DATA PATH helpers
+// ─────────────────────────────────────────────────────────────────────────
+const DATA_BASE = 'data';           // relative to index.html location
+const MINIMAP_BASE = '../minimaps'; // relative to public/
+
+const MINIMAP_FILES = {
+  AmbroseValley: `${MINIMAP_BASE}/AmbroseValley_Minimap.png`,
+  GrandRift:     `${MINIMAP_BASE}/GrandRift_Minimap.png`,
+  Lockdown:      `${MINIMAP_BASE}/Lockdown_Minimap.jpg`,
+};
+
+// ─────────────────────────────────────────────────────────────────────────
+// EVENT → VISUAL config
+// ─────────────────────────────────────────────────────────────────────────
+const EVENT_STYLE = {
+  Position:      { r: 3,  color: '#4fc3f7', shape: 'circle',  layer: 0 },
+  BotPosition:   { r: 3,  color: '#ffc107', shape: 'circle',  layer: 0 },
+  Kill:          { r: 6,  color: '#4caf50', shape: 'diamond', layer: 2 },
+  BotKill:       { r: 6,  color: '#4caf50', shape: 'diamond', layer: 2 },
+  Killed:        { r: 6,  color: '#ef5350', shape: 'square',  layer: 2 },
+  BotKilled:     { r: 6,  color: '#ef5350', shape: 'square',  layer: 2 },
+  KilledByStorm: { r: 7,  color: '#ba68c8', shape: 'triangle',layer: 2 },
+  Loot:          { r: 5,  color: '#29b6f6', shape: 'diamond', layer: 1 },
+};
+
+// ─────────────────────────────────────────────────────────────────────────
+// APP STATE
+// ─────────────────────────────────────────────────────────────────────────
+const state = {
+  currentMap:   null,   // "AmbroseValley" | "GrandRift" | "Lockdown"
+  matchList:    [],     // [{id, label}]
+  matchData:    null,   // parsed JSON from match file
+  hitTargets:   [],     // [{x,y,r,event}] for tooltip hit-testing
+
+  // Filters
+  filters: {
+    humans:    true,
+    bots:      true,
+    positions: true,
+    kills:     true,
+    deaths:    true,
+    loot:      true,
+    storm:     true,
+  },
+
+  // Pan / zoom
+  pan:   { x: 0, y: 0 },
+  zoom:  1,
+  drag:  { active: false, lastX: 0, lastY: 0 },
+};
+
+// ─────────────────────────────────────────────────────────────────────────
+// DOM refs
+// ─────────────────────────────────────────────────────────────────────────
+const mapSelect   = document.getElementById('mapSelect');
+const matchSelect = document.getElementById('matchSelect');
+const loadBtn     = document.getElementById('loadBtn');
+const errBanner   = document.getElementById('errBanner');
+const minimapImg  = document.getElementById('minimapImg');
+const canvas      = document.getElementById('overlayCanvas');
+const ctx         = canvas.getContext('2d');
+const tooltip     = document.getElementById('tooltip');
+const loadingMsg  = document.getElementById('loadingMsg');
+const statStatus  = document.getElementById('statStatus');
+
+// ─────────────────────────────────────────────────────────────────────────
+// UTILS
+// ─────────────────────────────────────────────────────────────────────────
+function showError(msg) {
+  errBanner.textContent = msg;
+  errBanner.classList.add('visible');
+}
+function clearError() {
+  errBanner.classList.remove('visible');
+}
+function setLoading(msg) {
+  loadingMsg.textContent = msg || '';
+  loadingMsg.classList.toggle('visible', !!msg);
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// STEP 1 — populate match list when map changes
+// ─────────────────────────────────────────────────────────────────────────
+mapSelect.addEventListener('change', async () => {
+  const map = mapSelect.value;
+  if (!map) return;
+
+  clearError();
+  state.currentMap = map;
+  matchSelect.disabled = true;
+  loadBtn.disabled = true;
+  matchSelect.innerHTML = '<option>Loading…</option>';
+
+  // FIX: Copilot tried to fetch "data/map_X/matches.json" which does NOT exist.
+  // The export script creates individual match JSON files named
+  // match_{id}.json plus a metadata.json.
+  // We read metadata.json to get the match list.
+  try {
+    const meta = await fetchJSON(`${DATA_BASE}/map_${map}/metadata.json`);
+
+    // Get the list of match file names in the folder by scanning metadata.
+    // metadata.json doesn't include a match list, so we build it by
+    // fetching the directory index via a known pattern:
+    // file names are match_{uuid_with_underscores}_nakama-0.json
+    // We use the metadata unique_matches count as a sanity check.
+    //
+    // REAL FIX: build the list from the file-naming convention.
+    // Since we can't list directories in a static host, we need a
+    // manifest. Generate one from the existing files.
+    await buildMatchDropdown(map);
+
+  } catch (e) {
+    showError(`Could not load metadata for ${map}: ${e.message}`);
+    matchSelect.innerHTML = '<option>— failed to load —</option>';
+  }
+});
+
+async function buildMatchDropdown(map) {
+  // The metadata.json exists but does NOT list match IDs.
+  // We try to fetch a generated index file (index.json) that we create
+  // at pre-processing time. If it doesn't exist, we show a helpful error.
+  //
+  // NOTE: The correct fix is to generate an index.json during export.
+  // We do that in generateMatchIndex() below when serving locally.
+  // For static hosting, the index.json must be pre-generated.
+  try {
+    const index = await fetchJSON(`${DATA_BASE}/map_${map}/index.json`);
+    state.matchList = index.matches; // [{id, label}]
+  } catch {
+    // Fallback: try to fetch a matches.json (legacy name)
+    try {
+      const legacy = await fetchJSON(`${DATA_BASE}/map_${map}/matches.json`);
+      state.matchList = legacy.matches.map(id => ({ id, label: id }));
+    } catch {
+      // Last resort: hard-coded count is useless, tell user to regenerate
+      showError(`No match index found for ${map}. Run generate_match_index.py to create index.json files.`);
+      matchSelect.innerHTML = '<option>— no index —</option>';
+      return;
+    }
+  }
+
+  matchSelect.innerHTML = state.matchList.map(m =>
+    `<option value="${m.id}">${m.label || m.id}</option>`
+  ).join('');
+  matchSelect.disabled = false;
+  loadBtn.disabled = false;
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// STEP 2 — Load and render a match
+// ─────────────────────────────────────────────────────────────────────────
+loadBtn.addEventListener('click', async () => {
+  const matchId = matchSelect.value;
+  if (!matchId || !state.currentMap) return;
+
+  clearError();
+  setLoading('Loading match data…');
+  loadBtn.disabled = true;
+
+  try {
+    // FIX: Copilot used raw match_id (including dots) as filename.
+    // export_to_json.py calls  safe_match_id = match_id.replace(".", "_")
+    // so we must mirror that transformation here.
+    const safeId = matchId.replace(/\./g, '_');
+    const url = `${DATA_BASE}/map_${state.currentMap}/match_${safeId}.json`;
+    state.matchData = await fetchJSON(url);
+
+    // FIX: duration_ms in the JSON stores the raw ts value (unix seconds),
+    // NOT a real duration. Compute real duration from ts range.
+    const tsList = state.matchData.events.map(e => e.ts);
+    state.matchData._duration_sec = Math.max(...tsList) - Math.min(...tsList);
+
+    // Load minimap image
+    minimapImg.src = MINIMAP_FILES[state.currentMap];
+    minimapImg.style.display = 'block';
+    minimapImg.onload = () => { resetView(); render(); };
+    minimapImg.onerror = () => { resetView(); render(); }; // render without minimap
+
+    updateStats();
+    setLoading(null);
+  } catch (e) {
+    showError(`Failed to load match: ${e.message}`);
+    setLoading(null);
+  } finally {
+    loadBtn.disabled = false;
+  }
+});
+
+// ─────────────────────────────────────────────────────────────────────────
+// FILTERING
+// ─────────────────────────────────────────────────────────────────────────
+const KILL_EVENTS   = new Set(['Kill','BotKill']);
+const DEATH_EVENTS  = new Set(['Killed','BotKilled']);
+const POS_EVENTS    = new Set(['Position','BotPosition']);
+const STORM_EVENTS  = new Set(['KilledByStorm']);
+const LOOT_EVENTS   = new Set(['Loot']);
+
+function eventPassesFilter(ev) {
+  const isHuman = ev.player_type === 'human';
+  const isBot   = ev.player_type === 'bot';
+
+  if (isHuman && !state.filters.humans)    return false;
+  if (isBot   && !state.filters.bots)      return false;
+
+  if (POS_EVENTS.has(ev.event)   && !state.filters.positions) return false;
+  if (KILL_EVENTS.has(ev.event)  && !state.filters.kills)     return false;
+  if (DEATH_EVENTS.has(ev.event) && !state.filters.deaths)    return false;
+  if (LOOT_EVENTS.has(ev.event)  && !state.filters.loot)      return false;
+  if (STORM_EVENTS.has(ev.event) && !state.filters.storm)     return false;
+
+  return true;
+}
+
+// Wire filter checkboxes → re-render
+[
+  ['chkHumans',    'humans'],
+  ['chkBots',      'bots'],
+  ['chkPositions', 'positions'],
+  ['chkKills',     'kills'],
+  ['chkDeaths',    'deaths'],
+  ['chkLoot',      'loot'],
+  ['chkStorm',     'storm'],
+].forEach(([id, key]) => {
+  document.getElementById(id).addEventListener('change', e => {
+    state.filters[key] = e.target.checked;
+    render();
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────
+// RENDERING
+// ─────────────────────────────────────────────────────────────────────────
+function sizeCanvas() {
+  const vp = document.getElementById('viewport');
+  canvas.width  = vp.clientWidth;
+  canvas.height = vp.clientHeight;
+}
+
+function resetView() {
+  state.pan  = { x: 0, y: 0 };
+  state.zoom = 1;
+}
+
+function render() {
+  sizeCanvas();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (!state.matchData) return;
+
+  const events = state.matchData.events.filter(eventPassesFilter);
+  state.hitTargets = [];
+
+  // The JSON has pre-computed pixel_x / pixel_y (0–1024 space).
+  // We need to map those onto the canvas, respecting zoom/pan.
+  //
+  // FIX: Copilot's renderMarkers() had TWO fatal bugs:
+  //  1. It used minX/maxX computed from pixel coords BUT then referenced
+  //     those variables BEFORE they were computed (forward-reference error).
+  //  2. The first forEach loop used `scale`, `offsetX`, `offsetY` which
+  //     were declared AFTER it — they were always undefined.
+  //  3. `centerOffsetX` / `centerOffsetY` were referenced but never defined.
+  //
+  // CORRECT approach: pixel coords are already in 0–1024 space.
+  // Map them to canvas via a simple scale that fits 1024×1024 into the
+  // viewport while maintaining aspect ratio, then apply pan/zoom.
+
+  const SRC = 1024; // pixel coordinate space from the export script
+  const scale = Math.min(canvas.width, canvas.height) / SRC * state.zoom;
+  const offsetX = (canvas.width  - SRC * scale) / 2 + state.pan.x;
+  const offsetY = (canvas.height - SRC * scale) / 2 + state.pan.y;
+
+  function toCanvas(px, py) {
+    return [px * scale + offsetX, py * scale + offsetY];
+  }
+
+  // Sort: positions first (background), then loot, then kills/deaths/storm (foreground)
+  const layered = events.slice().sort((a, b) => {
+    const la = (EVENT_STYLE[a.event] || {}).layer || 0;
+    const lb = (EVENT_STYLE[b.event] || {}).layer || 0;
+    return la - lb;
+  });
+
+  layered.forEach(ev => {
+    // FIX: Copilot also had pixel_x/pixel_y undefined for some events because
+    // the data export only stored them as integers but Copilot's schema check
+    // was broken. We guard here.
+    if (ev.pixel_x == null || ev.pixel_y == null) return;
+
+    const style = EVENT_STYLE[ev.event];
+    if (!style) return;
+
+    const [cx, cy] = toCanvas(ev.pixel_x, ev.pixel_y);
+    const r = style.r;
+
+    ctx.fillStyle = style.color;
+    ctx.beginPath();
+
+    switch (style.shape) {
+      case 'circle':
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.fill();
+        break;
+
+      case 'diamond':
+        ctx.moveTo(cx,     cy - r);
+        ctx.lineTo(cx + r, cy);
+        ctx.lineTo(cx,     cy + r);
+        ctx.lineTo(cx - r, cy);
+        ctx.closePath();
+        ctx.fill();
+        break;
+
+      case 'square':
+        ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
+        break;
+
+      case 'triangle':
+        ctx.moveTo(cx,         cy - r);
+        ctx.lineTo(cx + r,     cy + r);
+        ctx.lineTo(cx - r,     cy + r);
+        ctx.closePath();
+        ctx.fill();
+        break;
+
+      default:
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    // Register hit target for tooltip (only discrete events to avoid clutter)
+    if (!POS_EVENTS.has(ev.event)) {
+      state.hitTargets.push({ cx, cy, r: r + 4, ev });
+    }
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// STATS panel
+// ─────────────────────────────────────────────────────────────────────────
+function updateStats() {
+  const d = state.matchData;
+  if (!d) { statStatus.textContent = 'No data loaded'; return; }
+
+  const humans   = d.events.filter(e => e.player_type === 'human').length;
+  const bots     = d.events.filter(e => e.player_type === 'bot').length;
+  const kills    = d.events.filter(e => KILL_EVENTS.has(e.event)).length;
+  const deaths   = d.events.filter(e => DEATH_EVENTS.has(e.event)).length;
+  const loot     = d.events.filter(e => LOOT_EVENTS.has(e.event)).length;
+  const storm    = d.events.filter(e => STORM_EVENTS.has(e.event)).length;
+
+  // FIX: duration_ms was the raw ts value — we use _duration_sec computed on load
+  const dur_min = (d._duration_sec / 60).toFixed(1);
+
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="stat-label">Duration</div><div class="stat-value">${dur_min} min</div></div>
+    <div class="stat"><div class="stat-label">Total events</div><div class="stat-value">${d.events.length}</div></div>
+    <div class="stat"><div class="stat-label">Human events</div><div class="stat-value">${humans}</div></div>
+    <div class="stat"><div class="stat-label">Bot events</div><div class="stat-value">${bots}</div></div>
+    <div class="stat"><div class="stat-label">Kills</div><div class="stat-value">${kills}</div></div>
+    <div class="stat"><div class="stat-label">Deaths</div><div class="stat-value">${deaths}</div></div>
+    <div class="stat"><div class="stat-label">Loot pickups</div><div class="stat-value">${loot}</div></div>
+    <div class="stat"><div class="stat-label">Storm deaths</div><div class="stat-value">${storm}</div></div>
+  `;
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// TOOLTIP on hover
+// ─────────────────────────────────────────────────────────────────────────
+document.getElementById('viewport').addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+
+  let hit = null;
+  for (const t of state.hitTargets) {
+    const dx = mx - t.cx, dy = my - t.cy;
+    if (dx * dx + dy * dy <= t.r * t.r) { hit = t; break; }
+  }
+
+  if (hit) {
+    const ev = hit.ev;
+    tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
+    tooltip.style.top  = (e.clientY - rect.top  + 12) + 'px';
+    tooltip.style.display = 'block';
+    tooltip.innerHTML = `
+      <strong>${ev.event}</strong><br>
+      Player: ${ev.user_id.slice(0, 8)}…<br>
+      Type: ${ev.player_type}<br>
+      Pos: (${ev.x.toFixed(1)}, ${ev.z.toFixed(1)})
+    `;
+  } else {
+    tooltip.style.display = 'none';
+  }
+});
+
+document.getElementById('viewport').addEventListener('mouseleave', () => {
+  tooltip.style.display = 'none';
+});
+
+// ─────────────────────────────────────────────────────────────────────────
+// PAN with mouse drag
+// ─────────────────────────────────────────────────────────────────────────
+const vp = document.getElementById('viewport');
+
+vp.addEventListener('mousedown', e => {
+  state.drag.active = true;
+  state.drag.lastX = e.clientX;
+  state.drag.lastY = e.clientY;
+});
+
+window.addEventListener('mousemove', e => {
+  if (!state.drag.active) return;
+  state.pan.x += e.clientX - state.drag.lastX;
+  state.pan.y += e.clientY - state.drag.lastY;
+  state.drag.lastX = e.clientX;
+  state.drag.lastY = e.clientY;
+  render();
+});
+
+window.addEventListener('mouseup', () => { state.drag.active = false; });
+
+// ─────────────────────────────────────────────────────────────────────────
+// ZOOM with scroll wheel
+// ─────────────────────────────────────────────────────────────────────────
+vp.addEventListener('wheel', e => {
+  e.preventDefault();
+  const factor = e.deltaY < 0 ? 1.1 : 0.9;
+  state.zoom = Math.min(10, Math.max(0.2, state.zoom * factor));
+  render();
+}, { passive: false });
+
+// ─────────────────────────────────────────────────────────────────────────
+// RESIZE
+// ─────────────────────────────────────────────────────────────────────────
+window.addEventListener('resize', () => { if (state.matchData) render(); });
+
+// ─────────────────────────────────────────────────────────────────────────
+// FETCH helper
+// ─────────────────────────────────────────────────────────────────────────
+async function fetchJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  return res.json();
+}
+
+</script>
+</body>
+</html>

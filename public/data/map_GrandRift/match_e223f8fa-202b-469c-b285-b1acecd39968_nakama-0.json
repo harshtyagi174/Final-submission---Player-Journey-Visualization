@@ -1,0 +1,98 @@
+{
+  "match_id": "e223f8fa-202b-469c-b285-b1acecd39968.nakama-0",
+  "map_id": "GrandRift",
+  "player_count": 1,
+  "human_count": 8,
+  "bot_count": 0,
+  "duration_ms": 1770904606,
+  "events": [
+    {
+      "user_id": "ff436bfe-1b54-4098-a248-4bfbe123f3f1",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 235.7238006591797,
+      "z": -21.276094436645508,
+      "y": 16.092369079589844,
+      "ts": 1770904421,
+      "pixel_x": 926,
+      "pixel_y": 550
+    },
+    {
+      "user_id": "ff436bfe-1b54-4098-a248-4bfbe123f3f1",
+      "player_type": "human",
+      "event": "Position",
+      "x": 235.7238006591797,
+      "z": -21.276094436645508,
+      "y": 16.092369079589844,
+      "ts": 1770904421,
+      "pixel_x": 926,
+      "pixel_y": 550
+    },
+    {
+      "user_id": "ff436bfe-1b54-4098-a248-4bfbe123f3f1",
+      "player_type": "human",
+      "event": "Position",
+      "x": 198.26739501953125,
+      "z": -31.30008316040039,
+      "y": 25.133533477783203,
+      "ts": 1770904441,
+      "pixel_x": 860,
+      "pixel_y": 568
+    },
+    {
+      "user_id": "ff436bfe-1b54-4098-a248-4bfbe123f3f1",
+      "player_type": "human",
+      "event": "Position",
+      "x": 151.68112182617188,
+      "z": -41.077659606933594,
+      "y": 21.499906539916992,
+      "ts": 1770904486,
+      "pixel_x": 778,
+      "pixel_y": 585
+    },
+    {
+      "user_id": "ff436bfe-1b54-4098-a248-4bfbe123f3f1",
+      "player_type": "human",
+      "event": "Position",
+      "x": 115.5380859375,
+      "z": -76.52650451660156,
+      "y": 29.012563705444336,
+      "ts": 1770904496,
+      "pixel_x": 714,
+      "pixel_y": 647
+    },
+    {
+      "user_id": "ff436bfe-1b54-4098-a248-4bfbe123f3f1",
+      "player_type": "human",
+      "event": "Loot",
+      "x": 109.86255645751953,
+      "z": -74.00809478759766,
+      "y": 29.0674991607666,
+      "ts": 1770904500,
+      "pixel_x": 704,
+      "pixel_y": 643
+    },
+    {
+      "user_id": "ff436bfe-1b54-4098-a248-4bfbe123f3f1",
+      "player_type": "human",
+      "event": "Position",
+      "x": 127.6500244140625,
+      "z": -73.07707977294922,
+      "y": 28.583852767944336,
+      "ts": 1770904516,
+      "pixel_x": 736,
+      "pixel_y": 641
+    },
+    {
+      "user_id": "ff436bfe-1b54-4098-a248-4bfbe123f3f1",
+      "player_type": "human",
+      "event": "BotKilled",
+      "x": 35.286277770996094,
+      "z": -16.302335739135742,
+      "y": 23.699861526489258,
+      "ts": 1770904606,
+      "pixel_x": 573,
+      "pixel_y": 541
+    }
+  ]
+}

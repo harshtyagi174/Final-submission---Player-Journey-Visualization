@@ -1,0 +1,97 @@
+{
+  "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+  "map_id": "Lockdown",
+  "player_count": 1,
+  "duration_ms": 0,
+  "event_count": 8,
+  "events": [
+    {
+      "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+      "player_id": "688cb2e4-2215-4b3b-9af1-a6ee71d17636",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -117.2415771484375,
+      "y": 50.872127532958984,
+      "pixel_x": 0.0,
+      "pixel_y": 1.0
+    },
+    {
+      "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+      "player_id": "688cb2e4-2215-4b3b-9af1-a6ee71d17636",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -95.23603057861328,
+      "y": 47.834312438964844,
+      "pixel_x": 0.6710776032455807,
+      "pixel_y": 0.08205691547977481
+    },
+    {
+      "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+      "player_id": "688cb2e4-2215-4b3b-9af1-a6ee71d17636",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -84.4502182006836,
+      "y": 47.5627555847168,
+      "pixel_x": 1.0,
+      "pixel_y": 0.0
+    },
+    {
+      "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+      "player_id": "688cb2e4-2215-4b3b-9af1-a6ee71d17636",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -84.4502182006836,
+      "y": 47.5627555847168,
+      "pixel_x": 1.0,
+      "pixel_y": 0.0
+    },
+    {
+      "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+      "player_id": "688cb2e4-2215-4b3b-9af1-a6ee71d17636",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -117.2415771484375,
+      "y": 50.872127532958984,
+      "pixel_x": 0.0,
+      "pixel_y": 1.0
+    },
+    {
+      "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+      "player_id": "688cb2e4-2215-4b3b-9af1-a6ee71d17636",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -95.23603057861328,
+      "y": 47.834312438964844,
+      "pixel_x": 0.6710776032455807,
+      "pixel_y": 0.08205691547977481
+    },
+    {
+      "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+      "player_id": "688cb2e4-2215-4b3b-9af1-a6ee71d17636",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -84.4502182006836,
+      "y": 47.5627555847168,
+      "pixel_x": 1.0,
+      "pixel_y": 0.0
+    },
+    {
+      "match_id": "0954f788-ba35-4227-b6d4-a1172dd87d71",
+      "player_id": "688cb2e4-2215-4b3b-9af1-a6ee71d17636",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": -84.4502182006836,
+      "y": 47.5627555847168,
+      "pixel_x": 1.0,
+      "pixel_y": 0.0
+    }
+  ]
+}

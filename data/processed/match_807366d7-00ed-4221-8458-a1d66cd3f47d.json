@@ -1,0 +1,273 @@
+{
+  "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+  "map_id": "Lockdown",
+  "player_count": 1,
+  "duration_ms": 0,
+  "event_count": 24,
+  "events": [
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 215.85130310058594,
+      "y": 38.713829040527344,
+      "pixel_x": 0.0,
+      "pixel_y": 0.6167162129994077
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 221.0089569091797,
+      "y": 37.77864456176758,
+      "pixel_x": 0.11394637226846026,
+      "pixel_y": 0.3452875624865062
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 235.90985107421875,
+      "y": 37.44976043701172,
+      "pixel_x": 0.44314699268105956,
+      "pixel_y": 0.2498319853409286
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 235.90985107421875,
+      "y": 37.44976043701172,
+      "pixel_x": 0.44314699268105956,
+      "pixel_y": 0.2498319853409286
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 241.1488800048828,
+      "y": 37.44976043701172,
+      "pixel_x": 0.5588911591204596,
+      "pixel_y": 0.2498319853409286
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 241.15684509277344,
+      "y": 37.44976043701172,
+      "pixel_x": 0.5590671292230718,
+      "pixel_y": 0.2498319853409286
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 242.81690979003906,
+      "y": 37.44976043701172,
+      "pixel_x": 0.5957423999962244,
+      "pixel_y": 0.2498319853409286
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 230.3212890625,
+      "y": 36.612396240234375,
+      "pixel_x": 0.31968070528277753,
+      "pixel_y": 0.006794767464390303
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 228.6098175048828,
+      "y": 36.588985443115234,
+      "pixel_x": 0.28186971942207645,
+      "pixel_y": 0.0
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 238.17416381835938,
+      "y": 36.624916076660156,
+      "pixel_x": 0.4931717195144439,
+      "pixel_y": 0.010428534258936332
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 238.97268676757812,
+      "y": 36.624916076660156,
+      "pixel_x": 0.5108132279625258,
+      "pixel_y": 0.010428534258936332
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 239.21682739257812,
+      "y": 37.02618408203125,
+      "pixel_x": 0.5162069475828214,
+      "pixel_y": 0.12689286366731437
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 238.67408752441406,
+      "y": 37.02618408203125,
+      "pixel_x": 0.504216371759428,
+      "pixel_y": 0.12689286366731437
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 238.67408752441406,
+      "y": 37.02618408203125,
+      "pixel_x": 0.504216371759428,
+      "pixel_y": 0.12689286366731437
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 247.1466522216797,
+      "y": 36.66857147216797,
+      "pixel_x": 0.6913979948173097,
+      "pixel_y": 0.02309910927319128
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 243.1227264404297,
+      "y": 36.651851654052734,
+      "pixel_x": 0.6024987080355972,
+      "pixel_y": 0.018246336616123873
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 250.7974853515625,
+      "y": 36.680458068847656,
+      "pixel_x": 0.7720546666967816,
+      "pixel_y": 0.02654908408483218
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 249.41934204101562,
+      "y": 39.127071380615234,
+      "pixel_x": 0.7416077936551654,
+      "pixel_y": 0.7366559823736846
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 248.27500915527344,
+      "y": 39.94599533081055,
+      "pixel_x": 0.716326418472411,
+      "pixel_y": 0.9743410891335758
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 248.84307861328125,
+      "y": 40.027950286865234,
+      "pixel_x": 0.72887659270641,
+      "pixel_y": 0.9981277575717314
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 247.88755798339844,
+      "y": 39.89065170288086,
+      "pixel_x": 0.7077665854350018,
+      "pixel_y": 0.9582781126999153
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 261.11517333984375,
+      "y": 40.034400939941406,
+      "pixel_x": 1.0,
+      "pixel_y": 1.0
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 258.9165344238281,
+      "y": 39.73204040527344,
+      "pixel_x": 0.9514261837444752,
+      "pixel_y": 0.9122426497046596
+    },
+    {
+      "match_id": "807366d7-00ed-4221-8458-a1d66cd3f47d",
+      "player_id": "ccfb5370-9522-4fb8-ac03-eda5955ec2a4",
+      "is_bot": false,
+      "timestamp": 0,
+      "event_type": "Other",
+      "x": 258.8787841796875,
+      "y": 39.71935272216797,
+      "pixel_x": 0.950592179848187,
+      "pixel_y": 0.9085601669628375
+    }
+  ]
+}
