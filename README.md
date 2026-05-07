@@ -1,343 +1,182 @@
-# LILA BLACK Player Journey Visualization Tool
+# LILA BLACK — Player Journey Visualization
 
-## Overview
+**Live URL:** https://final-submission-player-journey-vis.vercel.app/
 
-This is a complete end-to-end pipeline and visualization dashboard for analyzing player movement, events, and interactions in LILA BLACK match telemetry data. The tool processes raw `.nakama-0` (Apache Parquet) files and provides an interactive dashboard for exploring player journeys.
+Interactive browser-based tool for LILA Games level designers to explore player movement, events, and behavioral patterns across 5 days of LILA BLACK telemetry data.
+
+---
+
+## Tech Stack
+
+| Layer | Choice | Why |
+|---|---|---|
+| Frontend | Vanilla HTML + Canvas API | Zero dependencies, zero build step. Max ~800 events per match — Canvas is sufficient |
+| Data pipeline | Python · pyarrow · pandas | Reliable parquet parsing; pre-processes 7.98 MB of raw data to static JSON offline |
+| Hosting | Vercel (static) | Dataset fits in static files — no backend needed, instant deploys, free tier |
+
+---
 
 ## Features
 
-- **Data Pipeline**: Automated ETL processing of raw telemetry data
-- **Event Classification**: Automatic categorization of events (Kill, Death, Loot, Position, etc.)
-- **Bot Detection**: Identifies bots (numeric player IDs) vs humans (UUID player IDs)
-- **Coordinate Normalization**: Maps pixel coordinates to 0-1 range for consistency
-- **Interactive Dashboard**: Streamlit-based visualization with filters and real-time updates
-- **Movement Visualization**: Scatter plot showing player positions with event markers
-- **Density Heatmap**: Event concentration visualization across the map
-- **Timeline Analysis**: Historical view of events throughout the match
-- **Player Statistics**: Breakdown of events by type, player type, and individual players
+- **3 maps** — Ambrose Valley, Grand Rift, Lockdown — each with minimap overlay
+- **Marker rendering** — distinct shapes and colours per event type (positions, kills, deaths, loot, storm deaths)
+- **Human vs bot** toggle — see each population independently
+- **Per-event-type filters** — isolate kills, deaths, loot, or storm deaths
+- **Pan and zoom** — mouse drag + scroll wheel on the viewport
+- **Hover tooltips** — event type, player ID, world coordinates
+- **Match stats** — duration, event count, human/bot breakdown
 
-## Project Structure
+---
+
+## Repository Structure
 
 ```
 lila-player-visualization/
-├── src/
-│   └── pipeline.py              # Data processing ETL pipeline
-├── app.py                       # Streamlit dashboard
-├── data/
-│   ├── raw/                     # Raw .nakama-0 files (input)
-│   └── processed/               # Processed JSON files (output)
-├── requirements.txt             # Python dependencies
-├── README.md                    # This file
-├── ARCHITECTURE.md              # Technical design document
-└── INSIGHTS.md                  # Data insights and recommendations
+├── public/                          # Everything Vercel serves
+│   ├── index.html                   # The entire frontend (single file)
+│   ├── minimaps/                    # Minimap images
+│   │   ├── AmbroseValley_Minimap.png
+│   │   ├── GrandRift_Minimap.png
+│   │   └── Lockdown_Minimap.jpg
+│   └── data/                        # Pre-processed match JSON
+│       ├── map_AmbroseValley/
+│       │   ├── index.json           # Match list for dropdown
+│       │   └── match_*.json         # Per-match event data (566 files)
+│       ├── map_GrandRift/
+│       │   ├── index.json
+│       │   └── match_*.json         # (59 files)
+│       └── map_Lockdown/
+│           ├── index.json
+│           └── match_*.json         # (171 files)
+├── scripts/
+│   ├── export_to_json.py            # Parquet → JSON pre-processor
+│   └── generate_match_index.py      # Builds index.json per map folder
+├── data/                            # Raw .nakama-0 files (not committed)
+│   └── player_data/
+│       ├── February_10/ … February_14/
+│       └── minimaps/
+├── ARCHITECTURE.md
+├── INSIGHTS.md
+├── README.md
+└── requirements.txt
 ```
 
-## Installation
+---
+
+## Local Setup
 
 ### Prerequisites
-- Python 3.11+ (Python 3.13 recommended on Windows)
-- pip (Python package manager)
+- Python 3.10+
+- A way to serve static files locally (Python's built-in server works fine)
 
-> Note: On Windows, if you encounter file-lock errors like `WinError 32` while installing Streamlit, close any running Python/Streamlit sessions and retry.
-
-### Steps
-
-1. **Open a terminal in the project root**:
-   ```bash
-   cd lila-player-visualization
-   ```
-
-2. **Create a virtual environment** (recommended):
-   ```bash
-   python -m venv .venv
-   ```
-
-3. **Activate the virtual environment**:
-   - Command Prompt:
-     ```bat
-     .\.venv\Scripts\activate.bat
-     ```
-   - PowerShell:
-     ```powershell
-     .\.venv\Scripts\Activate.ps1
-     ```
-
-4. **Upgrade packaging tools**:
-   ```bash
-   python -m pip install --upgrade pip wheel setuptools
-   ```
-
-5. **Install dependencies**:
-   ```bash
-   python -m pip install -r requirements.txt
-   ```
-
-6. **If Streamlit install still fails**, install it directly after upgrading pip:
-   ```bash
-   python -m pip install streamlit
-   ```
-
-### Windows helper
-
-If you are on Windows, run the provided helper script:
-```bat
-windows_setup.bat
+### 1. Install Python dependencies
+```bash
+pip install pyarrow pandas Pillow
 ```
 
-This will create a `.venv`, activate it, upgrade pip/wheel/setuptools, and install the required dependencies.
-
-## Usage
-
-### 1. Prepare Raw Data
-
-Place your `.nakama-0` files in the `data/raw/` directory. The pipeline expects files with the naming pattern:
+### 2. Place raw data
+Put the unzipped `player_data/` folder at the repo root so the path is:
 ```
-{player_id}_{match_id}.nakama-0
+lila-player-visualization/data/player_data/February_10/...
 ```
 
-Example:
+### 3. Run the data pipeline
+```bash
+python scripts/export_to_json.py
 ```
-data/raw/
-├── 0019c582-574d-4a53-9f77-554519b75b4c_1298e3e2-2776-4038-ba9b-72808b041561.nakama-0
-├── 036692b4-8185-422d-823a-9e4c394ba75e_3aabe6a4-59cc-44c1-870d-6791adae5b2f.nakama-0
-└── ...
-```
-
-### 2. Run the Pipeline
-
-Process raw data into normalized JSON format:
+This reads all `.nakama-0` files and writes per-match JSON to `public/data/`. Takes ~30 seconds for the full dataset.
 
 ```bash
-python src/pipeline.py --input data/raw --output data/processed
+python scripts/generate_match_index.py
 ```
+This creates `index.json` inside each `public/data/map_*/` folder (needed for the match dropdown).
 
-**Options:**
-- `--input` (default: `data/raw`): Directory containing .nakama-0 files
-- `--output` (default: `data/processed`): Output directory for processed JSON files
-
-**Example output:**
-```
-INFO:root:======================================
-INFO:root:LILA BLACK Player Journey Pipeline
-INFO:root:======================================
-INFO:root:Found 1243 .nakama-0 files
-INFO:root:Processing file 50/1243
-INFO:root:Processed 1243 files into 882 matches
-INFO:root:======================================
-INFO:root:PROCESSING SUMMARY
-INFO:root:======================================
-INFO:root:Total Matches: 882
-INFO:root:Total Events: 285,342
-INFO:root:Total Players: 1,544
-INFO:root:======================================
-```
-
-### 3. Launch the Dashboard
-
-Start the Streamlit visualization:
-
+### 4. Serve locally
 ```bash
-streamlit run app.py
+cd public
+python -m http.server 8080
 ```
+Open `http://localhost:8080` in Chrome.
 
-If `streamlit` is not available on your PATH after activation, use:
+> **Note:** Opening `index.html` directly as a `file://` URL will fail due to CORS restrictions on `fetch()`. Always use a local server.
 
-```bash
-python -m streamlit run app.py
-```
+---
 
-The app will open in your browser at `http://localhost:8501`
+## Environment Variables
 
-## Dashboard Features
+None required. This is a fully static app — all data is pre-baked into JSON files at build time.
 
-### Match Selection
-- Dropdown to select from all processed matches
-- Displays match metadata (events, players, map, duration)
+---
 
-### Filters
-- **Event Types**: Select which event types to display (Kill, Death, Loot, Position, etc.)
-- **Player Type**: Filter for human players, bots, or both
-- **Timeline**: Select a time window (ms) to focus on specific moments in the match
+## Deployment (Vercel)
 
-### Visualizations
-
-1. **Movement Map** (Scatter Plot)
-   - Shows player positions with event markers
-   - Color-coded by event type
-   - Hover for detailed event information
-   - Bold outline for significant events (Kill, Death)
-
-2. **Event Density Heatmap**
-   - Shows where events cluster on the map
-   - Darker areas indicate more events
-   - Grid-based representation
-
-3. **Event Timeline**
-   - Stacked bar chart showing event distribution over time
-   - Binned into 20 equal time intervals
-   - Color-coded by event type
-
-### Statistics
-- Event breakdown by type
-- Player type distribution
-- Top 10 players by event count
-- Detailed event table with filtering and sorting
-
-## Data Processing Details
-
-### Input Format
-- **File Type**: Apache Parquet (despite `.nakama-0` extension)
-- **Filename Pattern**: `{player_id}_{match_id}.nakama-0`
-- **Bot Detection**: Player ID is numeric (e.g., "1440") → Bot; UUID format → Human
-
-### Output Format
-Each processed match is saved as JSON with the following structure:
+The `public/` directory is the Vercel root. Set the following in `vercel.json` (already included in repo):
 
 ```json
 {
-  "match_id": "match-uuid",
-  "map_id": "AmbroseValley",
-  "player_count": 42,
-  "duration_ms": 1200000,
-  "event_count": 285,
-  "events": [
-    {
-      "match_id": "match-uuid",
-      "player_id": "player-uuid",
-      "is_bot": false,
-      "timestamp": 5000,
-      "event_type": "Kill",
-      "x": 1024.5,
-      "y": 768.3,
-      "pixel_x": 0.512,
-      "pixel_y": 0.384,
-      "player_name": "PlayerName"
-    },
-    ...
-  ]
+  "outputDirectory": "public"
 }
 ```
 
-### Event Classification
-- **Kill**: Player eliminated another player
-- **BotKill**: Bot eliminated another player
-- **Death**: Player was eliminated
-- **Loot**: Player picked up items
-- **Position**: Position update (movement)
-- **Other**: Unclassified events
+Push to GitHub → Vercel auto-deploys on every push to `main`.
 
-### Coordinate Normalization
-Raw pixel coordinates are normalized to 0-1 range for:
-- Consistency across different map sizes
-- Simplified visualization and heatmap generation
-- Better statistical analysis
+> **Critical:** The `minimaps/` folder must be inside `public/minimaps/` — not at the repo root. Vercel only serves what is inside the output directory.
 
-## Deployment
+---
 
-### Local Development
-```bash
-streamlit run app.py
+## Using the Tool
+
+1. **Select a map** from the dropdown — minimap loads automatically
+2. **Select a match** from the second dropdown (populated per map)
+3. Click **Load Match** — events render as markers on the minimap
+4. **Toggle filters** (Humans/Bots, event types) to isolate what you need
+5. **Pan** by clicking and dragging the viewport
+6. **Zoom** with the scroll wheel
+7. **Hover** over any non-position marker for a tooltip with event details
+
+### Event marker legend
+
+| Marker | Event |
+|--------|-------|
+| 🔵 Blue circle | Human position |
+| 🟡 Yellow circle | Bot position |
+| 🟢 Green diamond | Kill (BotKill or Kill) |
+| 🔴 Red square | Death (BotKilled or Killed) |
+| 🟣 Purple triangle | Storm death (KilledByStorm) |
+| 🔷 Cyan diamond | Loot pickup |
+
+---
+
+## Data Pipeline Details
+
+**Input:** `.nakama-0` files (Apache Parquet despite the extension)
+**Filename format:** `{player_id}_{match_id}.nakama-0`
+
+**Key data facts confirmed during exploration:**
+- `ts` column type is `timestamp[ms]` in Parquet schema but raw int64 values are Unix seconds — treated as seconds throughout
+- `event` column values are bytes — decoded as UTF-8
+- Bot detection: numeric filename prefix = bot (e.g. `1441_...`), UUID prefix = human
+- Coordinate axis used: `x` and `z` (not `y` — that is elevation, ignored)
+- Minimap images are not 1024×1024: AmbroseValley=4320px, GrandRift=2160px, Lockdown=9000px
+
+**Coordinate mapping:**
+```python
+u = (world_x - origin_x) / scale       # normalised [0, 1]
+v = (world_z - origin_z) / scale       # normalised [0, 1]
+pixel_x = u * canvas_width
+pixel_y = (1 - v) * canvas_height      # Y flipped: game=bottom-left, image=top-left
 ```
 
-### Streamlit Cloud
+---
 
-1. Push the project to GitHub
-2. Connect your repository to Streamlit Cloud (https://streamlit.io/cloud)
-3. Deploy with a single click
-4. Access your app at `https://<username>-<reponame>-<hash>.streamlit.app`
+## Dataset Summary
 
-### Docker (Optional)
-
-Create a `Dockerfile`:
-```dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-EXPOSE 8501
-CMD ["streamlit", "run", "app.py"]
-```
-
-Build and run:
-```bash
-docker build -t lila-player-viz .
-docker run -p 8501:8501 lila-player-viz
-```
-
-## Configuration
-
-### Environment Variables (Optional)
-
-Create a `.streamlit/config.toml` file to customize the dashboard:
-
-```toml
-[theme]
-primaryColor = "#FF6B6B"
-backgroundColor = "#1a1a1a"
-secondaryBackgroundColor = "#262630"
-textColor = "#fafafa"
-
-[server]
-maxUploadSize = 200
-enableXsrfProtection = false
-```
-
-## Troubleshooting
-
-### No data displays in the dashboard
-- Ensure you've run the pipeline: `python src/pipeline.py`
-- Check that `data/processed/` contains `.json` files
-- Look for error messages in the pipeline logs
-
-### Out of memory errors
-- The pipeline processes all files at once; for very large datasets, consider:
-  - Processing data by date range
-  - Increasing system RAM
-  - Running on a server with more resources
-
-### Slow performance
-- Large heatmaps (grid_size > 30) can be slow
-- Reduce the time window using the timeline filter
-- Consider pre-filtering on specific event types
-
-## Technical Stack
-
-- **Backend**: Python 3.11+
-- **Data Processing**: pandas, numpy, pyarrow
-- **Frontend**: Streamlit
-- **Visualization**: Plotly
-- **Deployment**: Streamlit Cloud / Docker
-
-## Performance Metrics
-
-- **Pipeline Processing**: ~2-5 seconds per 100 files (depends on system)
-- **Data Processing**: 1,243 files (1.2 GB) → 882 matches in <60 seconds
-- **Dashboard Load**: <500ms for typical match
-- **Memory Usage**: ~500MB for full dataset
-
-## Known Limitations
-
-1. Very large matches (>10,000 events) may be slow in the heatmap
-2. Timeline slider is binned to 20 intervals for performance
-3. Coordinate normalization assumes different pixel ranges per match
-4. Real-time data ingestion not yet supported (batch processing only)
-
-## Future Enhancements
-
-- [ ] Real-time data streaming
-- [ ] Player path tracing and trajectory analysis
-- [ ] Minimap overlay support
-- [ ] Advanced filtering (by opponent, by location)
-- [ ] Performance profiling and heat intensity metrics
-- [ ] Export visualizations as images/videos
-- [ ] Multiplayer comparison mode
-- [ ] Machine learning-based anomaly detection
-
-## License
-
-Project created for LILA BLACK player telemetry analysis.
-
-## Support
-
-For issues or questions, please refer to the ARCHITECTURE.md document for technical details.
+| Stat | Value |
+|------|-------|
+| Days of data | 5 (Feb 10–14, 2026) |
+| Raw files | 1,243 |
+| Unique matches | 796 |
+| Human players | 245 |
+| Bot IDs | 94 |
+| Total events | 89,104 |
+| Largest map (matches) | AmbroseValley — 566 matches |
